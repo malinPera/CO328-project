@@ -1,4 +1,4 @@
 Team members
 Malin Prematilake
 Buddhi Wickramasinghe
-Natasha Narampanawa
+Nathasha Naranpanawa
