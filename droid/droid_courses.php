@@ -2,8 +2,7 @@
 //malin
 function get_user_courses($conn,$user_id){
 
-	//$sql = "select * from mdl_course;";
-	$sql = "select * from mdl_course
+    	$sql = "select * from mdl_course
 			where id in(
 				select courseid from mdl_enrol
 				where id in (
@@ -14,7 +13,6 @@ function get_user_courses($conn,$user_id){
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while($row = $result->fetch_assoc()) {
-			//echo "id: " . $row["id"]. ' - Name: <a href="../course/view.php?id='.$row["id"].' ">'. $row["fullname"]. " " . $row["shortname"]. "</a><br>";
 			$course_val = array();
 			$course_val[0]=$row["id"];
 			$course_val[1]=$row["fullname"];
@@ -27,7 +25,7 @@ function get_user_courses($conn,$user_id){
 		}
 		return $return_val;
 	} else {
-		$return_val=0;
+		return $return_val=0;
 	}
 }
 ?>
