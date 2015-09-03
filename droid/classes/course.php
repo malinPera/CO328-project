@@ -1,11 +1,4 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of course
  *
@@ -38,5 +31,26 @@ class course {
 		$return_val=0;
 	}
         return $return_val;
+    }
+    
+    function get_item_name($conn,$userID){
+        $cId = $this->courseID;
+        $sql = "select itemname
+                from mdl_grade_grades,mdl_grade_items
+                where mdl_grade_items.id = itemid and itemname!='NULL' and userid=".$userID." "
+                . "and courseid=".$cId.";";
+
+        $result = $conn->query($sql);
+        $ret_val = array();
+        $i = 0;
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $ret_val[$i] = $row["itemname"];
+                $i++;
+            }
+        } else {
+            $ret_val = -1;
+        }
+        return $ret_val;
     }
 }
