@@ -22,7 +22,10 @@ function get_quizes($conn, $user_id){
 			$quiz_val[2]=$row["name"];
 			$quiz_val[3]=$row["timeopen"];
 			$quiz_val[4]=$row["timeclose"];
+<<<<<<< HEAD
+=======
 			$quiz_val[5]=$row["timelimit"];
+>>>>>>> bf618d4c4f8a36abb47e991a4914dc757eb7fffc
 			
 			$return_val[$i] = $quiz_val;
 			$i = $i + 1;
